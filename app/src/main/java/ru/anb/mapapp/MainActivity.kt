@@ -1,7 +1,8 @@
 package ru.anb.mapapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 import ru.anb.mapapp.ui.AuthorizationFragment
 
 
@@ -11,6 +12,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AuthorizationFragment()).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, AuthorizationFragment())
+            .addToBackStack("AuthorizationFragment").commit()
     }
+
 }

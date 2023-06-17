@@ -1,11 +1,11 @@
 package ru.anb.mapapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import ru.anb.mapapp.Constants
 import ru.anb.mapapp.R
 import ru.anb.mapapp.databinding.FragmentAuthorizationBinding
@@ -29,7 +29,9 @@ class AuthorizationFragment : Fragment() {
 
         binding.signIn.setOnClickListener {
             if (Constants.TOKEN == "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
-                parentFragmentManager.beginTransaction().replace(R.id.fragment_container, MapFragment()).commit()
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, MapFragment()).addToBackStack("MapFragment")
+                    .commit()
         }
     }
 }
