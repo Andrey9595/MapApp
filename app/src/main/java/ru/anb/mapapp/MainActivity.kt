@@ -12,9 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, AuthorizationFragment())
-            .addToBackStack("AuthorizationFragment").commit()
+        if (savedInstanceState == null)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AuthorizationFragment())
+                .addToBackStack("AuthorizationFragment").commit()
     }
 
 }
